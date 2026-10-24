@@ -10,12 +10,14 @@ import {
   AIAnalysis,
 } from '../types';
 
+const fixtureUrl = (filename: string) => `${import.meta.env.BASE_URL}fixtures/${filename}`;
+
 export const SAMPLE_IMAGE_FIXTURES = [
   {
     id: 'fix_pothole_01',
     name: 'Sector-2 Malviya Nagar Road Surface Crater',
     filename: 'pothole_road_jaipur.jpg',
-    url: '/fixtures/pothole_road_jaipur.jpg',
+    url: fixtureUrl('pothole_road_jaipur.jpg'),
     category: 'roads_footpaths',
     subtype: 'Severe Asphalt Pothole',
     expectedAnalysis: {
@@ -43,7 +45,7 @@ export const SAMPLE_IMAGE_FIXTURES = [
     id: 'fix_garbage_02',
     name: 'Raja Park Commercial Dumpster Overflow',
     filename: 'garbage_overflow_jaipur.jpg',
-    url: '/fixtures/garbage_overflow_jaipur.jpg',
+    url: fixtureUrl('garbage_overflow_jaipur.jpg'),
     category: 'waste_sanitation',
     subtype: 'Secondary Waste Depot Overflow',
     expectedAnalysis: {
@@ -71,7 +73,7 @@ export const SAMPLE_IMAGE_FIXTURES = [
     id: 'fix_streetlight_03',
     name: 'Johari Bazar Heritage Corridor Broken Luminaire',
     filename: 'streetlight_broken_jaipur.jpg',
-    url: '/fixtures/streetlight_broken_jaipur.jpg',
+    url: fixtureUrl('streetlight_broken_jaipur.jpg'),
     category: 'streetlights_electrical',
     subtype: 'Bent Pole with Exposed Wiring',
     expectedAnalysis: {
@@ -99,7 +101,7 @@ export const SAMPLE_IMAGE_FIXTURES = [
     id: 'fix_waterlog_04',
     name: 'Tonk Road Stormwater Drain Grid Jam',
     filename: 'waterlogging_drain_jaipur.jpg',
-    url: '/fixtures/waterlogging_drain_jaipur.jpg',
+    url: fixtureUrl('waterlogging_drain_jaipur.jpg'),
     category: 'drainage_waterlogging',
     subtype: 'Clogged Storm Drain Inlet & Road Flooding',
     expectedAnalysis: {
@@ -760,7 +762,7 @@ export const INITIAL_CIVIC_ISSUES: CivicIssue[] = [
     status: 'routed_in_prototype',
     reporterId: 'CITIZEN_ANON_782',
     imageIds: ['IMG-1001-A'],
-    imageUrl: '/fixtures/pothole_road_jaipur.jpg',
+    imageUrl: fixtureUrl('pothole_road_jaipur.jpg'),
     aiAnalysisId: 'AI-1001',
     authorityRecommendationId: 'REC-1001',
     relatedProjectIds: ['PW-2026-081'],
@@ -785,7 +787,7 @@ export const INITIAL_CIVIC_ISSUES: CivicIssue[] = [
     status: 'under_review',
     reporterId: 'CITIZEN_ANON_409',
     imageIds: ['IMG-1002-A'],
-    imageUrl: '/fixtures/garbage_overflow_jaipur.jpg',
+    imageUrl: fixtureUrl('garbage_overflow_jaipur.jpg'),
     aiAnalysisId: 'AI-1002',
     authorityRecommendationId: 'REC-1002',
     relatedProjectIds: ['PW-2026-083'],
@@ -810,7 +812,7 @@ export const INITIAL_CIVIC_ISSUES: CivicIssue[] = [
     status: 'needs_attention',
     reporterId: 'CITIZEN_ANON_112',
     imageIds: ['IMG-1003-A'],
-    imageUrl: '/fixtures/streetlight_broken_jaipur.jpg',
+    imageUrl: fixtureUrl('streetlight_broken_jaipur.jpg'),
     aiAnalysisId: 'AI-1003',
     authorityRecommendationId: 'REC-1003',
     relatedProjectIds: ['PW-2026-085'],
@@ -835,7 +837,7 @@ export const INITIAL_CIVIC_ISSUES: CivicIssue[] = [
     status: 'in_progress',
     reporterId: 'CITIZEN_ANON_901',
     imageIds: ['IMG-1004-A'],
-    imageUrl: '/fixtures/waterlogging_drain_jaipur.jpg',
+    imageUrl: fixtureUrl('waterlogging_drain_jaipur.jpg'),
     aiAnalysisId: 'AI-1004',
     authorityRecommendationId: 'REC-1004',
     relatedProjectIds: ['PW-2026-086'],

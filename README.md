@@ -112,6 +112,16 @@ http://localhost:3002/
 npm run build
 ```
 
+## Hosting
+
+The project is configured to deploy to GitHub Pages whenever changes are pushed to `master`.
+After the first successful deployment, the website will be available at:
+
+https://deepanshu-shekhawat.github.io/jannigrani-jaipur/
+
+The Pages build uses the repository subpath as its asset base and publishes a `404.html`
+fallback so direct navigation and refreshes on app routes work.
+
 ## Product vision
 
 JanNigrani is a civic operations prototype for making urban service delivery more transparent and measurable. It demonstrates how digital reporting, intelligence, and public infrastructure data can be brought together to improve responsiveness and accountability in a city context.
