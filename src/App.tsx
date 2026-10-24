@@ -12,9 +12,21 @@ import { AuthoritiesPage } from './pages/AuthoritiesPage';
 import { AdminPage } from './pages/AdminPage';
 import { CivicIssue } from './types';
 
+const appBasePath = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const getAppPath = (pathname: string) => {
+  if (!appBasePath) return pathname || '/';
+  if (pathname === appBasePath) return '/';
+  if (pathname.startsWith(`${appBasePath}/`)) return pathname.slice(appBasePath.length);
+  return pathname || '/';
+};
+
+const getBrowserPath = (path: string) =>
+  `${import.meta.env.BASE_URL}${path.replace(/^\/+/, '')}`;
+
 export const App: React.FC = () => {
   const [currentPath, setCurrentPath] = useState<string>(() => {
-    return window.location.pathname || '/';
+    return getAppPath(window.location.pathname);
   });
   const [selectedIssueId, setSelectedIssueId] = useState<string | null>(null);
   const [reportCoords, setReportCoords] = useState<{ lat: number; lng: number } | undefined>(undefined);
@@ -22,7 +34,7 @@ export const App: React.FC = () => {
   // Sync browser back/forward buttons
   useEffect(() => {
     const handlePopState = () => {
-      const path = window.location.pathname || '/';
+      const path = getAppPath(window.location.pathname);
       setCurrentPath(path);
       if (path.startsWith('/complaints/') && path !== '/complaints') {
         const id = path.replace('/complaints/', '').split('#')[0];
@@ -38,7 +50,7 @@ export const App: React.FC = () => {
   }, []);
 
   const navigateTo = (path: string) => {
-    window.history.pushState({}, '', path);
+    window.history.pushState({}, '', getBrowserPath(path));
     setCurrentPath(path);
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
