@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #F7F7F2;
+    color: #202724;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F7F7F2;
+}
+::-webkit-scrollbar-thumb {
+  background: #ccdcd0;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #6D7771;
+}
+
+/* Custom Leaflet Marker Badges */
+.custom-civic-pin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  box-shadow: 0 4px 12px rgba(16, 45, 39, 0.25);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.custom-civic-pin:hover {
+  transform: scale(1.15) translateY(-2px);
+  box-shadow: 0 8px 16px rgba(16, 45, 39, 0.35);
+  z-index: 999 !important;
+}
+
+/* Custom Road Contractor Marker Badges */
+.custom-contract-pin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(15, 61, 62, 0.35);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
+  cursor: pointer;
+  border: 2px solid #ffffff;
+  position: relative;
+}
+
+.custom-contract-pin:hover {
+  transform: scale(1.18) translateY(-2px);
+  box-shadow: 0 8px 20px rgba(15, 61, 62, 0.45);
+  z-index: 999 !important;
+}
+
+.custom-contract-pin.dlp-badge::after {
+  content: '';
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  width: 9px;
+  height: 9px;
+  background-color: #10B981;
+  border: 1.5px solid #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(16, 185, 129, 0.8);
+}
+
+.leaflet-popup-content-wrapper {
+  padding: 0 !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  box-shadow: 0 12px 30px -4px rgba(21, 63, 53, 0.18) !important;
+  border: 1px solid #E1E5DF !important;
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+  line-height: inherit !important;
+}
+
+.leaflet-container {
+  font-family: 'Inter', sans-serif !important;
+  isolation: isolate;
+  z-index: 0 !important;
+  position: relative;
+}
+
+/* Micro-interaction utils */
+.interactive-card {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.interactive-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px -4px rgba(21, 63, 53, 0.08);
+}
